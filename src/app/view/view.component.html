@@ -1,0 +1,49 @@
+<div *ngIf="moviesList">
+  <div class="header">
+    <h2 style="margin-left:40px;">Movies</h2>
+    <input type="text" [(ngModel)]="query" placeholder="Search movie, director, rating etc." />
+    <div class="dropdown">
+      <span>Sort</span>
+      <div class="dropdown-content">
+        <button (click)="sortByRating()">By Rating</button>
+        <button (click)="sortByTitle()">By Title</button>
+        <button (click)="sortReset()" *ngIf="reset">Reset</button>
+      </div>
+    </div>
+  </div>
+  <div class="sortView">
+    <div class="reset" *ngIf="reset" (click)="sortReset()">Reset</div>
+    <div class="box" *ngIf="byrating">By Rating</div>
+    <div class="box" *ngIf="bytitle">By Title</div>
+  </div>
+</div>
+
+<div class="view" *ngIf="moviesList">
+  <div class="card" *ngFor="let movie of moviesList  | LockFilter: query" (click)="open(movie.movie_imdb_link)">
+    <div class="head">
+      <img src="https://getuikit.com/v2/docs/images/placeholder_600x400.svg" />
+      <h4>{{ movie.movie_title }}</h4>
+    </div>
+    <div class="rating">
+      <div *ngIf="movie.content_rating">
+        <span class="heart">♥</span>
+        {{ movie.content_rating}}
+      </div>
+      <div *ngIf="movie.language">
+        <span class="language">⅍</span>
+        {{ movie.language}}
+      </div>
+      <div *ngIf="movie.country">
+        <span class="heart">🌐</span>
+        {{ movie.country}}
+      </div>
+    </div>
+    <div class="genres">
+      <b *ngIf="movie.title_year">{{ movie.title_year }}:</b> <b *ngIf="!movie.title_year">Genres:</b> {{ movie.genres
+      }}
+    </div>
+  </div>
+</div>
+
+
+<app-loading *ngIf="!moviesList"></app-loading>

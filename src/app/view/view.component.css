@@ -1,0 +1,212 @@
+@media (max-width : 900px) {
+  .view {
+    grid-template-columns: 30% 30% 30% !important;
+  }
+}
+
+@media (max-width : 700px) {
+  .view {
+    grid-template-columns: 50% 50% !important;
+  }
+}
+
+@media (max-width : 500px) {
+  .view {
+    grid-template-columns: 90% !important;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: #545562;
+  color: white;
+  /* padding:0 40px; */
+  position: sticky;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+}
+
+.header input {
+  width: 20%;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0 20px;
+  font-size: 16px;
+  margin: 10px 0;
+  transition: 0.3s;
+}
+
+.header input:focus {
+  width: 40%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  align-self: center;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  padding: 0px 16px;
+  z-index: 1;
+  font-size: 15px;
+  right: -20px;
+  animation: drop-down 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-content button {
+  padding: 10px;
+  font-size: 16px;
+  background: #333545;
+  color: white;
+  border: 0px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dropdown-content button:hover {
+  background: #FF9800;
+}
+
+.view {
+  display: grid;
+  grid-template-columns: 24% 24% 24% 24%;
+  place-content: center;
+  grid-gap: 15px;
+  padding: 10px;
+  background: #efefef;
+}
+
+.view .card {
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+
+.view .card:hover {
+  box-shadow: 0 0 13px rgba(0, 0, 0, 0.12), 0 2px 25px rgba(0, 0, 0, 0.34);
+}
+
+.view .card img {
+  width: 100%;
+  border-top-left-radius: 25px;
+}
+
+.view .card .head {
+  position: relative;
+}
+
+.view .card .head h4 {
+  position: absolute;
+  bottom: 0;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: right;
+  box-sizing: border-box;
+  margin: 5px 0px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  color: white;
+}
+
+.view .card .rating {
+  padding: 0 10px;
+  font-size: 15px;
+  color: gray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.view .card .rating div {
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+}
+
+.view .card .rating .heart {
+  color: #F44336;
+  font-size: 23px;
+}
+
+.view .card .rating .language {
+  color: lightgreen;
+  font-size: 23px;
+}
+
+.view .card .genres {
+  color: gray;
+  font-size: 13px;
+  padding: 5px 10px;
+  word-break: break-all;
+}
+
+.sortView {
+  background: #efefef;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.sortView .box {
+  background: orange;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 7px;
+  margin: 10px 10px 0 0;
+  animation: drop-left 0.3s ease-in;
+}
+
+.reset {
+  padding: 7px 25px !important;
+  align-self: center;
+  background: #F44336;
+  color: white;
+  margin-right: 20px;
+  border-radius: 25px;
+  margin-top: 10px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.reset:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  background: #e0372b;
+}
+
+@keyframes drop-down {
+  from {
+    transform: translatey(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translatey(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes drop-left {
+  from {
+    transform: translatex(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translatex(0px);
+    opacity: 1;
+  }
+}
